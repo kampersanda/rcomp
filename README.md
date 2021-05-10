@@ -91,8 +91,6 @@ $ make test
 
 ## Authors
 
-The main contributors to the library are:
-
 - [Takaaki Nishimoto](https://github.com/TNishimoto)
 - [Shunsuke Kanda](https://github.com/kampersanda) (Creator)
 - [Yasuo Tabei](https://github.com/tb-yasu)
