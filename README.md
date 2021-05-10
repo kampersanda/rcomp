@@ -20,6 +20,8 @@ The code is written in C++17, so please install g++ >= 7.0 or clang >= 4.0. For 
 
 The library employs the third-party libraries [cmd\_line\_parser](https://github.com/jermp/cmd_line_parser), [doctest](https://github.com/onqtam/doctest), [nameof](https://github.com/Neargye/nameof) and [tinyformat](https://github.com/c42f/tinyformat), whose header files are contained in this repository.
 
+The code has been tested only on Mac OS X and Linux. That is, this library considers only UNIX-compatible OS.
+
 ## Sample usage
 
 The executable `perf_rlbwt` provides a benchmark of RLBWT construction, as follows.
