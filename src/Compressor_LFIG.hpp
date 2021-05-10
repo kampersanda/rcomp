@@ -296,10 +296,12 @@ class Compressor_LFIG {
         mem += sizeof(m_num_chars);
         mem += sizeof(m_em_lnode);
         mem += sizeof(m_em_lofst);
-        // mem += sizeof(lnode_type*) * m_updated_lnodes.capacity();
-        // mem += sizeof(fnode_type*) * m_updated_fnodes.capacity();
-        // mem += sizeof(lnode_type*) * m_lnodes_buffer.capacity();
-        // mem += sizeof(fnode_type*) * m_fnodes_buffer.capacity();
+        mem += sizeof(m_em_fnode);
+        mem += sizeof(m_em_fofst);
+        mem += sizeof(m_fat_lnodes);
+        mem += sizeof(m_fat_fnodes);
+        mem += sizeof(m_lnodes_buffer);
+        mem += sizeof(m_fnodes_buffer);
         return mem;
     }
 
