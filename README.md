@@ -6,7 +6,7 @@ This library provides a C++17 implementation of **R-comp**, an online RLBWT comp
 
 ## Build instructions
 
-You can download and compile the library as the following commands.
+You can download and compile the library with the following commands:
 
 ```shell
 $ git clone https://github.com/kampersanda/rcomp.git
@@ -88,7 +88,7 @@ No Problem!
 
 ## Test
 
-The unit tests are written using [doctest](https://github.com/onqtam/doctest). After compiling, you can run tests in the following command:
+The unit tests are written using [doctest](https://github.com/onqtam/doctest). After compiling, you can run tests with the following command:
 
 ```shell
 $ make test
