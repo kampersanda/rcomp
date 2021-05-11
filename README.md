@@ -1,5 +1,8 @@
 # R-comp: Online RLBWT compression in optimal-time and BWT-runs bounded space
-This library provides a C++17 implementation of **R-comp**, an online RLBWT compression in optimal-time and BWT-runs bounded space.
+
+[![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
+
+This library provides a C++17 implementation of **R-comp**, an online RLBWT compression algorithm in optimal-time and BWT-runs bounded space.
 
 ## Build instructions
 
