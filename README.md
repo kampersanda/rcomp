@@ -133,6 +133,10 @@ count(aaba) = 2
 locate(aaba) = {5,0,}
 ```
 
+### Caution ⚠
+
+In the current version, static global variables are employed in class `GroupedFIndex` commonly used in classes `(Rlbwt|Rindex)_GLFIG`. Please do NOT create multiple instances of these in a single process.
+
 ## Performance test
 
 ### RLBWT
