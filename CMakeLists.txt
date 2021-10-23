@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(RCOMP VERSION 1.0.0 LANGUAGES CXX)
+project(RLBWT VERSION 1.0.0 LANGUAGES CXX)
 
 if(NOT CMAKE_BUILD_TYPE)
     # set(CMAKE_BUILD_TYPE "Debug")
@@ -30,5 +30,11 @@ message(STATUS "CXX_FLAGS are ${CMAKE_CXX_FLAGS}")
 message(STATUS "CXX_FLAGS_DEBUG are ${CMAKE_CXX_FLAGS_DEBUG}")
 message(STATUS "CXX_FLAGS_RELEASE are ${CMAKE_CXX_FLAGS_RELEASE}")
 
+include_directories(include)
+
+add_subdirectory(perf)
+add_subdirectory(sample)
+add_subdirectory(tool)
+
 enable_testing()
-add_subdirectory(src)
+add_subdirectory(test)
