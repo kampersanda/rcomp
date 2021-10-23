@@ -22,7 +22,7 @@ static constexpr size_type NUM_TRIALS = 10;
 cmd_line_parser::parser make_parser(int argc, char** argv) {
     cmd_line_parser::parser p(argc, argv);
     p.add("input_path", "Input file path of text");
-    p.add("rindex_type", "Rindex data structure type", "-t", false);
+    p.add("rindex_type", "Rindex data structure type: lfig | glfig_[8|16|32|64] (default=glfig_16)", "-t", false);
     p.add("reverse_mode", "Loading the text in reverse? (default=1)", "-r", false);
     p.add("enable_test", "Testing the data structure? (default=1)", "-T", false);
     return p;
@@ -178,10 +178,18 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    const auto rindex_type_str = p.get<std::string>("rindex_type", "lfig_naive");
+    const auto rindex_type_str = p.get<std::string>("rindex_type", "glfig_16");
 
-    if (rindex_type_str == "lfig_naive") {
+    if (rindex_type_str == "lfig") {
         return perf_rindex<rindex_types::lfig_naive<DIV_BOUND>::type>(p);
+    } else if (rindex_type_str == "glfig_8") {
+        return perf_rindex<rindex_types::glfig_serialized<8, DIV_BOUND>::type>(p);
+    } else if (rindex_type_str == "glfig_16") {
+        return perf_rindex<rindex_types::glfig_serialized<16, DIV_BOUND>::type>(p);
+    } else if (rindex_type_str == "glfig_32") {
+        return perf_rindex<rindex_types::glfig_serialized<32, DIV_BOUND>::type>(p);
+    } else if (rindex_type_str == "glfig_64") {
+        return perf_rindex<rindex_types::glfig_serialized<64, DIV_BOUND>::type>(p);
     }
 
     p.help();

@@ -215,7 +215,7 @@ Usage: ./perf/perf_rindex [-h,--help] input_path [-t rindex_type] [-r reverse_mo
  input_path
         Input file path of text
  [-t rindex_type]
-        Rindex data structure type
+        Rindex data structure type: lfig | glfig_[8|16|32|64] (default=glfig_16)
  [-r reverse_mode]
         Loading the text in reverse? (default=1)
  [-T enable_test]
@@ -230,23 +230,23 @@ The parameter settings are the same as `perf_rlbwt`, and the following command m
 $ ./perf/perf_rindex alice29.txt 
 [Input_Params]
 input_path:     alice29.txt
-rindex_type:    rcomp::Rindex_LFIG<rcomp::LFIntervalGraph<rcomp::LData_Naive<true>, rcomp::FData_Naive<rcomp::LData_Naive<true> >, 7> >
+rindex_type:    rcomp::Rindex_GLFIG<rcomp::GroupedLFIntervalGraph<rcomp::GroupedLData_Serialized<16, true, 2, true, true>, rcomp::GroupedFData_Serialized<rcomp::GroupedLData_Serialized<16, true, 2, true, true> >, 7> >
 reverse_mode:   1
 [Progress_Report]
 num_chars:      10000
 construction_sec:       0.005
 [Progress_Report]
 num_chars:      100000
-construction_sec:       0.071
+construction_sec:       0.07
 [Final_Report]
-construction_sec:       0.128
+construction_sec:       0.116
 num_runs:       66903
 num_chars:      152090
 compression_ratio:      0.439891
-alloc_memory_in_bytes:  15597560
-alloc_memory_in_MiB:    14.875
-peak_memory_in_bytes:   19980288
-peak_memory_in_MiB:     19.0547
+alloc_memory_in_bytes:  6408190
+alloc_memory_in_MiB:    6.11133
+peak_memory_in_bytes:   8417280
+peak_memory_in_MiB:     8.02734
 [Search_Settings]
 num_trials:     10
 num_queries:    1000
@@ -256,11 +256,11 @@ Warming up now...
 dummy:  18858
 [Count_Query]
 occ_per_query:  18.858
-microsec_per_query:     3.2683
+microsec_per_query:     4.19685
 [Locate_Query]
 occ_per_query:  37.716
-microsec_per_query:     7.34604
-microsec_per_occ:       0.194773
+microsec_per_query:     7.14312
+microsec_per_occ:       0.189392
 Testing the data structure now...
 No Problem!
 Testing the decoded text now...
