@@ -28,14 +28,14 @@ The library implements several data structures and provides the following varian
 - `rlbwt_types::lfig_naive` is a straightforward implementation of the LF-interval graph with `O(r)` nodes, and
 - `rlbwt_types::glfig_serialized<g>` is a spece-efficient implementation of the LF-interval graph with `O(r/g)` nodes,
 
-where `r` is the number of runs in BWT.
+where `r` is the number of BWT-runs.
 
 Also, the library implements r-index on these data structures, providing `count` and `locate` queries in the compressed space. In the same manner as `rlbwt_types`, the variants are defined in `rindex_types`.
 
-### Limitations
+## Limitations
 
 - An input text must NOT contain the `0x00` character because it is used as a special end marker.
-- In the current version, static global variables are employed in class `GroupedFIndex` commonly used in classes `(Rlbwt|Rindex)_GLFIG`. Please do NOT create multiple instances of `glfig_serialized` in a single process.
+- In the current version, class `GroupedFIndex` resorts to static global variables. Please do NOT create multiple instances of `glfig_serialized` in a single process.
 
 ## Sample usage
 
@@ -333,6 +333,14 @@ $ make test
 ## Licensing
 
 This program is available for only academic use, basically. For the academic use, please keep [MIT License](https://github.com/kampersanda/rcomp/blob/main/LICENSE). For the commercial use, please keep GPL 2.0 and make a contact to one of the authors.
+
+If you use the library, please cite the following paper:
+
+```
+@inproceedings{
+    ...
+}
+```
 
 ## Related software
 
