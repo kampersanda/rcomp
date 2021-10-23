@@ -1,6 +1,6 @@
 # R-comp: Online RLBWT compression in optimal-time and BWT-runs bounded space
 
-This library provides a C++17 implementation of R-comp, an online RLBWT compression algorithm in optimal-time and BWT-runs bounded space.
+This is an experimental library of R-comp, an online RLBWT compression algorithm in optimal-time and BWT-runs bounded space.
 
 ## Build instructions
 
@@ -25,16 +25,16 @@ The code has been tested only on Mac OS X and Linux. That is, this library consi
 
 The library implements several data structures and provides the following variants of R-comp defined in `rlbwt_types`:
 
-- `rlbwt_types::lfig_naive` is a straightforward implementation with the LF-interval graph of `O(r)` nodes, and
-- `rlbwt_types::glfig_serialized<g>` is a spece-efficient implementation with the LF-interval graph of `O(r/g)` nodes,
+- `rlbwt_types::lfig_naive` is a straightforward implementation of the LF-interval graph with `O(r)` nodes, and
+- `rlbwt_types::glfig_serialized<g>` is a spece-efficient implementation of the LF-interval graph with `O(r/g)` nodes,
 
 where `r` is the number of runs in BWT.
 
-Also, the library implements r-index on the data structures, providing `count` and `locate` queries in the compressed space. In the same manner as `rlbwt_types`, the variations are defined in `rindex_types`.
+Also, the library implements r-index on these data structures, providing `count` and `locate` queries in the compressed space. In the same manner as `rlbwt_types`, the variants are defined in `rindex_types`.
 
 ### Limitations
 
-- An input text must not contain the `0x00` character because it is used as the special end marker.
+- An input text must NOT contain the `0x00` character because it is used as a special end marker.
 - In the current version, static global variables are employed in class `GroupedFIndex` commonly used in classes `(Rlbwt|Rindex)_GLFIG`. Please do NOT create multiple instances of `glfig_serialized` in a single process.
 
 ## Sample usage
@@ -160,15 +160,15 @@ $ ./perf/perf_rlbwt -h
 Usage: ./perf/perf_rlbwt [-h,--help] input_path [-t rlbwt_type] [-r reverse_mode] [-T enable_test]
 
  input_path
-	Input file path of text
+    Input file path of text
  [-t rlbwt_type]
-	Rlbwt data structure type: lfig | glfig_[8|16|32|64] (default=glfig_16)
+    Rlbwt data structure type: lfig | glfig_[8|16|32|64] (default=glfig_16)
  [-r reverse_mode]
-	Load the text in reverse? (default=1)
+    Load the text in reverse? (default=1)
  [-T enable_test]
-	Test the data structure? (default=1)
+    Test the data structure? (default=1)
  [-h,--help]
-	Print this help text and silently exits.
+    Print this help text and silently exits.
 ```
 
 - For data structure type `t`, `lfig` is a straight forward implementation, and `glfig_g` is a memory-efficient implementation by the grouping technique with group size `g`. 
