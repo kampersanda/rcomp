@@ -23,14 +23,14 @@ The code has been tested only on Mac OS X and Linux. That is, this library consi
 
 ## Implementations
 
-The library implements several data structures and provides the following variants of R-comp defined in `rlbwt_types.hpp`:
+The library implements several data structures and provides the following variants of R-comp defined in `rlbwt_types`:
 
 - `rlbwt_types::lfig_naive` is a straightforward implementation with the LF-interval graph of `O(r)` nodes, and
 - `rlbwt_types::glfig_serialized<g>` is a spece-efficient implementation with the LF-interval graph of `O(r/g)` nodes,
 
 where `r` is the number of runs in BWT.
 
-Also, the library implements r-index on the data structures, providing `count` and `locate` queries in the compressed space. In the same manner as `rlbwt_types`, the variations are defined in `rindex_types.hpp`.
+Also, the library implements r-index on the data structures, providing `count` and `locate` queries in the compressed space. In the same manner as `rlbwt_types`, the variations are defined in `rindex_types`.
 
 ### Limitations
 
