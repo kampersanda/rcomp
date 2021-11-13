@@ -15,6 +15,7 @@ namespace dangerous_statics {
 
 static loint_type q_order;
 static size_type q_second_order;
+static int reference_counter = 0;
 
 }  // namespace dangerous_statics
 
@@ -77,10 +78,16 @@ class GroupedFIndex {
 
   public:
     //! Default constructor
-    GroupedFIndex() = default;
+    //! Multiple instances of this class should not be created due to static global variables in dangerous_statics.
+    GroupedFIndex() {
+        dangerous_statics::reference_counter++;  // NOTE: It's not atomic
+        ABORT_IF_LE(2, dangerous_statics::reference_counter);
+    }
 
     //! Default destructor
-    virtual ~GroupedFIndex() = default;
+    virtual ~GroupedFIndex() {
+        dangerous_statics::reference_counter--;
+    }
 
     //! Copy constructor (deleted)
     GroupedFIndex(const GroupedFIndex&) = delete;
