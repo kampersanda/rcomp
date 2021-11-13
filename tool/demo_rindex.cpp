@@ -15,7 +15,7 @@ static constexpr size_type DIV_BOUND = 7;
 cmd_line_parser::parser make_parser(int argc, char** argv) {
     cmd_line_parser::parser p(argc, argv);
     p.add("input_path", "Input file path of text");
-    p.add("rindex_type", "Rindex data structure type", "-t", false);
+    p.add("rindex_type", "Rindex data structure type: lfig | glfig_[8|16|32|64] (default=glfig_16)", "-t", false);
     p.add("step", "Number of characters to index in a single step (default=1000000)", "-s", false);
     return p;
 }
@@ -116,10 +116,18 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    const auto rindex_type_str = p.get<std::string>("rindex_type", "lfig_naive");
+    const auto rindex_type_str = p.get<std::string>("rindex_type", "glfig_16");
 
-    if (rindex_type_str == "lfig_naive") {
+    if (rindex_type_str == "lfig") {
         return demo_rindex<rindex_types::lfig_naive<DIV_BOUND>::type>(p);
+    } else if (rindex_type_str == "glfig_8") {
+        return demo_rindex<rindex_types::glfig_serialized<8, DIV_BOUND>::type>(p);
+    } else if (rindex_type_str == "glfig_16") {
+        return demo_rindex<rindex_types::glfig_serialized<16, DIV_BOUND>::type>(p);
+    } else if (rindex_type_str == "glfig_32") {
+        return demo_rindex<rindex_types::glfig_serialized<32, DIV_BOUND>::type>(p);
+    } else if (rindex_type_str == "glfig_64") {
+        return demo_rindex<rindex_types::glfig_serialized<64, DIV_BOUND>::type>(p);
     }
 
     p.help();

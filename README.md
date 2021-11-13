@@ -294,22 +294,22 @@ The number of resulting runs was 66186.
 
 ## r-index demo
 
-The executable `tool/demo_rindex` offers a demo of `count`/`locate` queries using r-index.
+The executable `tool/demo_rindex` offers a demo of `count` and `locate` queries using r-index.
 
 ```
-$ ./tool/demo_rindex alice29.txt
+$ ./tool/demo_rindex alice29.txt 
 Constructing r-index...
-152090 characters indexed in 15465584 bytes = 15103.1 KiB = 14.7491 MiB.
+152090 characters indexed in 6327169 bytes = 6178.88 KiB = 6.03406 MiB.
 1. Enter query string to search.
 2. Enter "exit" to continue indexing.
 > Dinah
-Count("Dinah") = 14, done in 11.3 micro sec.
+Count("Dinah") = 14, done in 36.6 micro sec.
 1. Enter '1' to run locate with print.
 2. Enter '2' to run locate without print.
 3. Enter another not to run locate.
 > 1
 Locate("Dinah") = {43681, 4612, 5237, 33563, 35845, 5189, 33713, 32627, 32751, 21324, 36155, 4532, 4475, 32894, }
-Locate query, done in 67.9 micro sec, 4.85 micro sec per occ.
+Locate query, done in 76 micro sec, 5.42857 micro sec per occ.
 1. Enter query string to search.
 2. Enter "exit" to continue indexing.
 > exit
