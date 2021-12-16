@@ -35,7 +35,7 @@ Also, the library implements r-index on these data structures, providing `count`
 ## Limitations
 
 - An input text must NOT contain the `0x00` character because it is used as a special end marker.
-- In the current version, class `GroupedFIndex` resorts to static global variables. Please do NOT create multiple instances of `glfig_serialized` in a single process.
+- In the current version, class `GroupedFIndex` resorts to static global variables. Please do NOT create multiple instances of `glfig_serialized`.
 
 ## Sample usage
 
