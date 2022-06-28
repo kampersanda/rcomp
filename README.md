@@ -1,6 +1,6 @@
 # R-comp: Online RLBWT compression in optimal-time and BWT-runs bounded space
 
-This is an experimental library of R-comp, an online RLBWT compression algorithm in optimal-time and BWT-runs bounded space, described in the paper: [An Optimal-Time RLBWT Construction in BWT-runs Bounded Space](https://arxiv.org/abs/2202.07885) (2022)
+This is an experimental library of R-comp, an online RLBWT compression algorithm in optimal-time and BWT-runs bounded space, described in the paper: [An Optimal-Time RLBWT Construction in BWT-runs Bounded Space](https://arxiv.org/abs/2202.07885) (ICALP 2022)
 by Takaaki Nishimoto, Shunsuke Kanda, and Yasuo Tabei.
 
 ## Build instructions
@@ -338,8 +338,13 @@ This program is available for only academic use, basically. For the academic use
 If you use the library, please cite the following paper:
 
 ```
-@inproceedings{
-    ...
+@inproceedings{nishimoto2022optimal,
+  author =	{Nishimoto, Takaaki and Kanda, Shunsuke and Tabei, Yasuo},
+  title =	{{An Optimal-Time RLBWT Construction in BWT-Runs Bounded Space}},
+  booktitle =	{49th International Colloquium on Automata, Languages, and Programming (ICALP 2022)},
+  pages =	{99:1--99:20},
+  year =	{2022},
+  doi =		{10.4230/LIPIcs.ICALP.2022.99},
 }
 ```
 
